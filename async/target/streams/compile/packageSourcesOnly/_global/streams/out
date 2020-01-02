@@ -1,0 +1,9 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/xms_bsegal/Documents/Class/ReactiveSystems/async/target/scala-2.13/reactive-async_2.13-0.1.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	async/AsyncInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/xms_bsegal/Documents/Class/ReactiveSystems/async/src/main/scala/async/AsyncInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	async/Async.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/xms_bsegal/Documents/Class/ReactiveSystems/async/src/main/scala/async/Async.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	async/Main.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/xms_bsegal/Documents/Class/ReactiveSystems/async/src/main/scala/async/Main.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

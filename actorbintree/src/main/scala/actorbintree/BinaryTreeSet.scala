@@ -9,7 +9,7 @@ import scala.collection.immutable.Queue
 object BinaryTreeSet {
 
   trait Operation {
-    def requester: ActorRef
+    def requester:ActorRef
     def id: Int
     def elem: Int
   }
@@ -50,13 +50,14 @@ object BinaryTreeSet {
 }
 
 
-class BinaryTreeSet extends Actor {
+class BinaryTreeSet extends Actor with ActorLogging {
   import BinaryTreeSet._
   import BinaryTreeNode._
 
-  def createRoot: ActorRef = context.actorOf(BinaryTreeNode.props(0, initiallyRemoved = true))
+  def createRoot: ActorRef = context.actorOf(BinaryTreeNode.props(0, initiallyRemoved = false))
 
   var root: ActorRef = createRoot
+  var newRoot:ActorRef = createRoot
 
   // optional (used to stash incoming operations during garbage collection)
   var pendingQueue: Queue[Operation] = Queue.empty[Operation]
@@ -68,9 +69,8 @@ class BinaryTreeSet extends Actor {
   /** Accepts `Operation` and `GC` messages. */
   val normal: Receive = {
     case GC =>
-      val newRoot = createRoot
       root ! CopyTo(newRoot)
-      garbageCollecting(newRoot)
+      context.become(garbageCollecting(newRoot))
     case operation:Operation => root ! operation
   }
 
@@ -105,7 +105,7 @@ object BinaryTreeNode {
   def props(elem: Int, initiallyRemoved: Boolean) = Props(classOf[BinaryTreeNode],  elem, initiallyRemoved)
 }
 
-class BinaryTreeNode(val elem: Int, initiallyRemoved: Boolean) extends Actor {
+class BinaryTreeNode(elem: Int, initiallyRemoved: Boolean) extends Actor with ActorLogging {
   import BinaryTreeNode._
   import BinaryTreeSet._
 
@@ -115,40 +115,86 @@ class BinaryTreeNode(val elem: Int, initiallyRemoved: Boolean) extends Actor {
   // optional
   def receive:Receive = normal
 
+  // Create a new node
+  def createNode(newElem:Int):ActorRef=
+    context.actorOf(BinaryTreeNode.props(elem,initiallyRemoved = false))
+
   // optional
   /** Handles `Operation` messages and `CopyTo` requests. */
   val normal: Receive = {
-    case Contains(requester,id,queryElem)=>
-      if (elem==queryElem) requester ! ContainsResult(id, !removed)
-      else if (subtrees.contains(child(queryElem)))
-        subtrees(child(queryElem)) ! Contains(requester,id,queryElem)
-      else requester ! ContainsResult(id,result = false)
-    case Insert(requester,id,queryElem)=>
+    case msg @ Contains(requester,id,queryElem)=>
+      if (elem==queryElem){
+        log.debug(s"Node with value $elem was found!")
+        requester ! ContainsResult(id, !removed)
+      }
+      else {
+        subtrees.get(child(queryElem)) match {
+          case Some(childNode) => childNode ! msg
+          case None => requester ! ContainsResult(id, result = false)
+        }
+      }
+
+
+    case msg @ Insert(requester,id,queryElem)=>
       if (elem==queryElem) {
+        log.debug(s"Reinserting the element $elem")
         removed = false
         requester ! OperationFinished(id)
       }
-      else if (subtrees.contains(child(queryElem)))
-        subtrees(child(queryElem)) ! Insert(requester,id,elem)
-      else
-        subtrees += (child(queryElem)->context.actorOf(BinaryTreeNode.props(elem,initiallyRemoved = false)))
-    case Remove(requester,id,queryElem) =>
+      else {
+        subtrees.get(child(queryElem)) match {
+          case Some(childNode) => childNode ! msg
+          case None =>
+            subtrees += child(queryElem)->createNode(queryElem)
+            requester ! OperationFinished(id)
+        }
+      }
+    case msg @ Remove(requester,id,queryElem) =>
       if (elem==queryElem) {
         removed = true
+        log.debug(s"Removed element $elem")
         requester ! OperationFinished(id)
       }
-      else if (subtrees.contains(child(queryElem)))
-        subtrees(child(queryElem)) ! Remove(requester,id,queryElem)
-      else
+      else if (subtrees.contains(child(queryElem))){
+        log.debug(s"Sending $msg to $subtrees")
+        subtrees(child(queryElem)) ! msg
+      }
+      else{
+        log.debug(s"Could not find $elem")
         requester ! OperationFinished(id)
+      }
+
+    case CopyTo(treeNode) =>
+      val expected:Set[ActorRef] = subtrees.values.toSet
+      if (expected.isEmpty && removed)
+        treeNode ! CopyFinished
+      else{
+        if (!removed) treeNode ! Insert(self,0, elem)
+        for{
+          child <- expected
+        }yield child ! CopyTo(treeNode)
+        context.become(copying(expected = expected,removed))
+      }
   }
   // optional
   /** `expected` is the set of ActorRefs whose replies we are waiting for,
     * `insertConfirmed` tracks whether the copy of this node to the new tree has been confirmed.
     */
-  def copying(expected: Set[ActorRef], insertConfirmed: Boolean): Receive = ???
-
-  def child(checkElem:Int):Position={
-    if(elem > checkElem) Left else Right
+  def copying(expected: Set[ActorRef], insertConfirmed: Boolean): Receive = {
+    case OperationFinished =>
+      if(expected.isEmpty){
+        context.parent ! CopyFinished
+        self ! PoisonPill
+      }
+      else context.become(copying(expected,insertConfirmed = true))
+    case CopyFinished =>
+      val newExpected = expected - sender
+      if (newExpected.isEmpty){
+        context.parent ! CopyFinished
+        self ! PoisonPill
+      }else
+        context.become(copying(newExpected,insertConfirmed))
   }
+
+  def child(newElem: Int ):Position = if(elem > newElem) Left else Right
 }

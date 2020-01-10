@@ -1,0 +1,192 @@
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector()[0m
+[0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 1 initial tasks for 1 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(actorbintree.BinaryTreeSuite, sbt.ForkMain$AnnotatedFingerscan@577c2194, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36minstruction example (5pts)[0m started[0m
+[0m[[0m[31merror[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[31minstruction example (5pts)[0m failed: java.lang.[31mRuntimeException[0m: failure to receive confirmation 5/6[0m
+[0m[[0m[31merror[0m] [0m[0mRequests:[0m
+[0m[[0m[31merror[0m] [0m[0m    Insert(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],100,1)[0m
+[0m[[0m[31merror[0m] [0m[0m     Contains(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],50,2)[0m
+[0m[[0m[31merror[0m] [0m[0m     Remove(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],10,1)[0m
+[0m[[0m[31merror[0m] [0m[0m     Insert(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],20,2)[0m
+[0m[[0m[31merror[0m] [0m[0m     Contains(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],80,1)[0m
+[0m[[0m[31merror[0m] [0m[0m     Contains(Actor[akka://BinaryTreeSuite/system/testProbe-2#-674898906],70,2)[0m
+[0m[[0m[31merror[0m] [0m[0mjava.lang.AssertionError: assertion failed: timeout (4987881208 nanoseconds) during expectMsgClass waiting for interface actorbintree.BinaryTreeSet$OperationReply, took 5.029 sec[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.sys.package$.error(package.scala:27)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.$anonfun$receiveN$2([35mBinaryTreeSuite.scala[0m:[33m24[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.$anonfun$receiveN$2$adapted([35mBinaryTreeSuite.scala[0m:[33m20[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.collection.immutable.Range.map(Range.scala:59)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.$anonfun$receiveN$1([35mBinaryTreeSuite.scala[0m:[33m20[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKitBase.within(TestKit.scala:375)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKitBase.within$(TestKit.scala:363)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKit.within(TestKit.scala:928)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKitBase.within(TestKit.scala:390)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKitBase.within$(TestKit.scala:390)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.testkit.TestKit.within(TestKit.scala:928)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.receiveN([35mBinaryTreeSuite.scala[0m:[33m19[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.verify([35mBinaryTreeSuite.scala[0m:[33m40[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at actorbintree.BinaryTreeSuite.instruction example (5pts)([35mBinaryTreeSuite.scala[0m:[33m79[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.lang.reflect.Method.invoke(Method.java:566)[0m
+[0m[[0m[31merror[0m] [0m[0m    ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36minstruction example (5pts)[0m finished, took 5.035 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36mproper inserts and lookups (5pts)[0m started[0m
+[0m[[0m[31merror[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[31mproper inserts and lookups (5pts)[0m failed: akka.remote.[31mRemoteTransportException[0m: Failed to bind TCP to [10.10.10.120:25520] due to: Bind failed because of java.net.BindException: Address already in use, took 0.0 sec[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.remote.artery.tcp.ArteryTcpTransport$$anonfun$3.applyOrElse(ArteryTcpTransport.scala:250)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.remote.artery.tcp.ArteryTcpTransport$$anonfun$3.applyOrElse(ArteryTcpTransport.scala:244)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:453)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor$Batch.run(BatchingExecutor.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.unbatchedExecute(Future.scala:85)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor.execute(BatchingExecutor.scala:122)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor.execute$(BatchingExecutor.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.execute(Future.scala:84)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.complete(Promise.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.complete$(Promise.scala:56)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.failure(Promise.scala:109)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.failure$(Promise.scala:109)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.failure(Promise.scala:104)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.receive(TcpStages.scala:96)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.$anonfun$preStart$1(TcpStages.scala:67)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.$anonfun$preStart$1$adapted(TcpStages.scala:67)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.internalReceive(GraphStage.scala:243)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.$anonfun$callback$1(GraphStage.scala:202)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.$anonfun$callback$1$adapted(GraphStage.scala:202)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreter.runAsyncInput(GraphInterpreter.scala:466)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:497)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:599)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:768)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:783)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Actor.aroundReceive(Actor.scala:532)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Actor.aroundReceive$(Actor.scala:530)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:690)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.receiveMessage(ActorCell.scala:573)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.invoke(ActorCell.scala:543)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:269)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.run(Mailbox.scala:230)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.exec(Mailbox.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: akka.stream.impl.io.ConnectionSourceStage$$anon$1$$anon$2: Bind failed because of java.net.BindException: Address already in use[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: java.net.BindException: Address already in use[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind(Net.java:455)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind(Net.java:447)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.io.TcpListener.liftedTree1$1(TcpListener.scala:59)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.io.TcpListener.this(TcpListener.scala:56)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.lang.reflect.Constructor.newInstance(Constructor.java:490)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.util.Reflect$.instantiate(Reflect.scala:69)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ArgsReflectConstructor.produce(IndirectActorProducer.scala:100)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Props.newActor(Props.scala:226)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.newActor(ActorCell.scala:609)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.create(ActorCell.scala:635)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:509)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.systemInvoke(ActorCell.scala:531)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:294)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.run(Mailbox.scala:229)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.exec(Mailbox.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36mproper inserts and lookups (5pts)[0m finished, took 0.008 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36mbehave identically to built-in set (includes GC) (40pts)[0m started[0m
+[0m[[0m[31merror[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[31mbehave identically to built-in set (includes GC) (40pts)[0m failed: akka.remote.[31mRemoteTransportException[0m: Failed to bind TCP to [10.10.10.120:25520] due to: Bind failed because of java.net.BindException: Address already in use, took 0.0 sec[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.remote.artery.tcp.ArteryTcpTransport$$anonfun$3.applyOrElse(ArteryTcpTransport.scala:250)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.remote.artery.tcp.ArteryTcpTransport$$anonfun$3.applyOrElse(ArteryTcpTransport.scala:244)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:453)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor$Batch.run(BatchingExecutor.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.unbatchedExecute(Future.scala:85)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor.execute(BatchingExecutor.scala:122)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.BatchingExecutor.execute$(BatchingExecutor.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.execute(Future.scala:84)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.complete(Promise.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.complete$(Promise.scala:56)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.failure(Promise.scala:109)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.Promise.failure$(Promise.scala:109)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.concurrent.impl.Promise$DefaultPromise.failure(Promise.scala:104)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.receive(TcpStages.scala:96)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.$anonfun$preStart$1(TcpStages.scala:67)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.io.ConnectionSourceStage$$anon$1.$anonfun$preStart$1$adapted(TcpStages.scala:67)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.internalReceive(GraphStage.scala:243)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.$anonfun$callback$1(GraphStage.scala:202)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.stage.GraphStageLogic$StageActor.$anonfun$callback$1$adapted(GraphStage.scala:202)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreter.runAsyncInput(GraphInterpreter.scala:466)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:497)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:599)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:768)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:783)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Actor.aroundReceive(Actor.scala:532)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Actor.aroundReceive$(Actor.scala:530)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:690)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.receiveMessage(ActorCell.scala:573)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.invoke(ActorCell.scala:543)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:269)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.run(Mailbox.scala:230)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.exec(Mailbox.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: akka.stream.impl.io.ConnectionSourceStage$$anon$1$$anon$2: Bind failed because of java.net.BindException: Address already in use[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: java.net.BindException: Address already in use[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind(Net.java:455)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.Net.bind(Net.java:447)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227)[0m
+[0m[[0m[31merror[0m] [0m[0m    at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.io.TcpListener.liftedTree1$1(TcpListener.scala:59)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.io.TcpListener.this(TcpListener.scala:56)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.lang.reflect.Constructor.newInstance(Constructor.java:490)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.util.Reflect$.instantiate(Reflect.scala:69)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ArgsReflectConstructor.produce(IndirectActorProducer.scala:100)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.Props.newActor(Props.scala:226)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.newActor(ActorCell.scala:609)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.create(ActorCell.scala:635)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:509)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.actor.ActorCell.systemInvoke(ActorCell.scala:531)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:294)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.run(Mailbox.scala:229)[0m
+[0m[[0m[31merror[0m] [0m[0m    at akka.dispatch.Mailbox.exec(Mailbox.scala:242)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)[0m
+[0m[[0m[31merror[0m] [0m[0m    at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actorbintree.[33mBinaryTreeSuite[0m.[36mbehave identically to built-in set (includes GC) (40pts)[0m finished, took 0.007 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[31m3 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 6.261s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0mSummary for JUnit not available.[0m
+[0m[[0m[31merror[0m] [0m[0mFailed: Total 3, Failed 3, Errors 0, Passed 0[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	actorbintree.BinaryTreeSuite[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
